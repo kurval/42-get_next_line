@@ -6,7 +6,7 @@
 /*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 10:26:05 by vkurkela          #+#    #+#             */
-/*   Updated: 2020/02/06 15:03:38 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:24:22 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,13 @@ static int	ret_value(char **s, char **line, int ret, int fd)
 }
 
 /*
-** Gnl checks if static variable is empty and then allocates
+** This function checks if static variable is empty and then allocates
 ** memory for it using buff and see if it contains line break
 ** character. Next iterations will store the data from fd and
 ** stores it after the previous data. Then it  must free
 ** the memory and copy temp andress so it won't loose the data.
-** If line break occurs then function breaks and calls next function.
+** If line break occurs then function breaks and calls next function
+** ret_value.
 */
 
 static int	store_line(char *buff, char **s, int *ret, int fd)
@@ -93,6 +94,11 @@ static int	store_line(char *buff, char **s, int *ret, int fd)
 		return (0);
 	return (1);
 }
+
+/*
+** GNL checks first errors and continue to read the file descriptor
+** untill it finds new line or error occurs.
+*/
 
 int			get_next_line(const int fd, char **line)
 {
