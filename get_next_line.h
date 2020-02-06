@@ -6,7 +6,7 @@
 /*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 10:29:20 by vkurkela          #+#    #+#             */
-/*   Updated: 2019/11/22 10:28:24 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:31:59 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # define FD_MAX 4864
 
 # include <stdlib.h>
-# include <sys/types.h>
-# include <sys/uio.h>
 # include <unistd.h>
 # include "libft/libft.h"
 
