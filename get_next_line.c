@@ -6,7 +6,7 @@
 /*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 10:26:05 by vkurkela          #+#    #+#             */
-/*   Updated: 2020/02/06 15:24:22 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:26:02 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static int	store_line(char *buff, char **s, int *ret, int fd)
 
 /*
 ** GNL checks first errors and continue to read the file descriptor
-** untill it finds new line or error occurs.
+** untill it finds a new line or an error occurs.
 */
 
 int			get_next_line(const int fd, char **line)
