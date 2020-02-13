@@ -6,7 +6,7 @@
 /*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 10:26:05 by vkurkela          #+#    #+#             */
-/*   Updated: 2020/02/13 23:48:34 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/02/14 00:01:02 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /*
 ** This function checks if it finds linebreak and stores
 ** the line ending '\n' to *line variable and sets *s
-** variable to right location. If there is no linebreak
-** it copies the end and frees the *s variable. If it reach
-** the end of a file we can free the memory of *s.
+** variable to position where that line ends. 
+** If there is no linebreak it copies the end and
+** frees the *s variable.
 */
 
 static int	get_line(char **s, char **line)
