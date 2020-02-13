@@ -30,12 +30,14 @@ int main(int argc, char **argv)
 	if (argc == 1)
 	{
 		while ((ret = get_next_line(0, &buff)) > 0)
+		{
 			printf("Return value: %d Line #%d: %s\n", ret, ++line, buff);
+			free(buff);
+		}
 		if (ret == -1)
 			printf("************\nERROR\n");
 		else if (ret == 0)
 			printf("************\nEND OF STDIN\n");
-		close(fd);
 	}
 	return (0);
 }
