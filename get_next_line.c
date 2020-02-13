@@ -6,7 +6,7 @@
 /*   By: vkurkela <vkurkela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 10:26:05 by vkurkela          #+#    #+#             */
-/*   Updated: 2020/02/06 15:26:02 by vkurkela         ###   ########.fr       */
+/*   Updated: 2020/02/13 23:48:34 by vkurkela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** the line ending '\n' to *line variable and sets *s
 ** variable to right location. If there is no linebreak
 ** it copies the end and frees the *s variable. If it reach
-** the end of a file we can free the memory of *s beacause.
+** the end of a file we can free the memory of *s.
 */
 
 static int	get_line(char **s, char **line)
@@ -67,13 +67,11 @@ static int	ret_value(char **s, char **line, int ret, int fd)
 ** This function checks if static variable is empty and then allocates
 ** memory for it using buff and see if it contains line break
 ** character. Next iterations will store the data from fd and
-** stores it after the previous data. Then it  must free
-** the memory and copy temp andress so it won't loose the data.
-** If line break occurs then function breaks and calls next function
-** ret_value.
+** stores it after the previous data. If line break occurs then
+** function breaks and returns 1.
 */
 
-static int	store_line(char *buff, char **s, int *ret, int fd)
+static int	check_linebreak(char *buff, char **s, int *ret, int fd)
 {
 	char		*temp;
 
@@ -112,7 +110,7 @@ int			get_next_line(const int fd, char **line)
 	*line = NULL;
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
 	{
-		value = store_line(buff, s, &ret, fd);
+		value = check_linebreak(buff, s, &ret, fd);
 		if (value == -1)
 			return (-1);
 		else if (value == 0)
